@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/BurntSushi/toml v0.3.1
-	github.com/alphayan/redisqueue/v3 v3.0.0-20210416081321-b3ff27c7b59c
+	github.com/alphayan/redisqueue/v3 v3.0.1
 	github.com/bitly/go-simplejson v0.5.0
 	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
 	github.com/bsm/redislock v0.7.0
@@ -42,7 +42,6 @@ require (
 	go.uber.org/zap v1.16.0
 	golang.org/x/crypto v0.0.0-20210415154028-4f45737414dc
 	golang.org/x/image v0.0.0-20210220032944-ac19c3e999fb // indirect
-	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013 // indirect
 	google.golang.org/protobuf v1.26.0
 	gorm.io/driver/mysql v1.0.5
 	gorm.io/driver/postgres v1.0.8 // indirect
