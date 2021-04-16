@@ -131,7 +131,7 @@ func (r *Redis) Lock(key string, ttl int64, options *redislock.Options) (*redisl
 	if r.mutex == nil {
 		r.mutex = redislock.New(r.client)
 	}
-	return r.mutex.Obtain(rctx,key, time.Duration(ttl)*time.Second, options)
+	return r.mutex.Obtain(rctx, key, time.Duration(ttl)*time.Second, options)
 }
 
 // GetClient 暴露原生client
