@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
+	"github.com/alphayan/redisqueue/v3"
 	"github.com/bsm/redislock"
 	"github.com/google/uuid"
-	"github.com/robinjoseph08/redisqueue/v2"
 	"github.com/spf13/cast"
 )
 

@@ -1,12 +1,15 @@
 package cache
 
 import (
+	"context"
 	"time"
 
+	"github.com/alphayan/redisqueue/v3"
 	"github.com/bsm/redislock"
-	"github.com/go-redis/redis/v7"
-	"github.com/robinjoseph08/redisqueue/v2"
+	"github.com/go-redis/redis/v8"
 )
+
+var rctx = context.Background()
 
 // Redis cache implement
 type Redis struct {
@@ -27,7 +30,7 @@ func (*Redis) String() string {
 func (r *Redis) Connect() error {
 	var err error
 	r.client = redis.NewClient(r.ConnectOption)
-	_, err = r.client.Ping().Result()
+	_, err = r.client.Ping(rctx).Result()
 	if err != nil {
 		return err
 	}
@@ -44,41 +47,41 @@ func (r *Redis) SetPrefix(string) {}
 
 // Get from key
 func (r *Redis) Get(key string) (string, error) {
-	return r.client.Get(key).Result()
+	return r.client.Get(context.Background(), key).Result()
 }
 
 // Set value with key and expire time
 func (r *Redis) Set(key string, val interface{}, expire int) error {
-	return r.client.Set(key, val, time.Duration(expire)*time.Second).Err()
+	return r.client.Set(rctx, key, val, time.Duration(expire)*time.Second).Err()
 }
 
 // Del delete key in redis
 func (r *Redis) Del(key string) error {
-	return r.client.Del(key).Err()
+	return r.client.Del(rctx, key).Err()
 }
 
 // HashGet from key
 func (r *Redis) HashGet(hk, key string) (string, error) {
-	return r.client.HGet(hk, key).Result()
+	return r.client.HGet(rctx, hk, key).Result()
 }
 
 // HashDel delete key in specify redis's hashtable
 func (r *Redis) HashDel(hk, key string) error {
-	return r.client.HDel(hk, key).Err()
+	return r.client.HDel(rctx, hk, key).Err()
 }
 
 // Increase
 func (r *Redis) Increase(key string) error {
-	return r.client.Incr(key).Err()
+	return r.client.Incr(rctx, key).Err()
 }
 
 func (r *Redis) Decrease(key string) error {
-	return r.client.Decr(key).Err()
+	return r.client.Decr(rctx, key).Err()
 }
 
 // Set ttl
 func (r *Redis) Expire(key string, dur time.Duration) error {
-	return r.client.Expire(key, dur).Err()
+	return r.client.Expire(rctx, key, dur).Err()
 }
 
 func (r *Redis) Append(message Message) error {
@@ -128,7 +131,7 @@ func (r *Redis) Lock(key string, ttl int64, options *redislock.Options) (*redisl
 	if r.mutex == nil {
 		r.mutex = redislock.New(r.client)
 	}
-	return r.mutex.Obtain(key, time.Duration(ttl)*time.Second, options)
+	return r.mutex.Obtain(rctx,key, time.Duration(ttl)*time.Second, options)
 }
 
 // GetClient 暴露原生client

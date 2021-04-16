@@ -10,7 +10,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/shamsher31/goimgext"
+	imgext "github.com/shamsher31/goimgext"
 )
 
 // GetSize 获取文件大小

@@ -1,9 +1,10 @@
 package database
 
 import (
+	"testing"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"testing"
 )
 
 var dsn0 = "dsn0"

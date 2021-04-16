@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/alphayan/redisqueue/v3"
 	"github.com/bsm/redislock"
-	"github.com/go-redis/redis/v7"
-	"github.com/robinjoseph08/redisqueue/v2"
+	"github.com/go-redis/redis/v8"
 )
 
 func TestRedis_Append(t *testing.T) {

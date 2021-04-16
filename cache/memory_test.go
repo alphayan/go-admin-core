@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/robinjoseph08/redisqueue/v2"
+	"github.com/alphayan/redisqueue/v3"
 )
 
 func TestMemory_Append(t *testing.T) {

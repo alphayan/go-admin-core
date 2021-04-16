@@ -3,10 +3,11 @@ package flag
 import (
 	"errors"
 	"flag"
-	"github.com/go-admin-team/go-admin-core/config/source"
-	"github.com/imdario/mergo"
 	"strings"
 	"time"
+
+	"github.com/alphayan/go-admin-core/config/source"
+	"github.com/imdario/mergo"
 )
 
 type flagsrc struct {

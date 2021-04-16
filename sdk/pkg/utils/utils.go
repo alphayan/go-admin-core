@@ -4,11 +4,12 @@ import (
 	"crypto/md5"
 	"encoding/base64"
 	"encoding/hex"
-	uuid "github.com/satori/go.uuid"
 	"io/ioutil"
 	"os"
 	"strings"
 	"time"
+
+	uuid "github.com/satori/go.uuid"
 )
 
 func Hmac(data string) string {
