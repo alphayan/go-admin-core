@@ -3,7 +3,7 @@ module github.com/go-admin-team/go-admin-core/sdk
 go 1.18
 
 require (
-	github.com/bsm/redislock v0.7.2
+	github.com/bsm/redislock v0.8.0
 	github.com/bytedance/go-tagexpr/v2 v2.9.5
 	github.com/casbin/casbin/v2 v2.55.1
 	github.com/casbin/redis-watcher/v2 v2.2.0
@@ -41,7 +41,6 @@ require (
 	github.com/andygrunwald/go-jira v1.16.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bitly/go-simplejson v0.5.0 // indirect
-	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/chanxuehong/rand v0.0.0-20211009035549-2f07823e8e99 // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect
@@ -128,4 +127,9 @@ require (
 )
 
 replace github.com/robinjoseph08/redisqueue/v2 v2.1.0 => github.com/alphayan/redisqueue/v3 v3.0.4
-replace github.com/go-admin-team/go-admin-core v1.4.0 => github.com/alphayan/go-admin-core v1.4.4
+
+replace github.com/bsm/redislock v0.8.0 => github.com/bsm/redislock v0.7.2
+replace (
+	github.com/go-admin-team/go-admin-core/sdk latest => ./
+)
+replace github.com/go-admin-team/go-admin-core v1.4.0 => ../

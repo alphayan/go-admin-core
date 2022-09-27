@@ -1,15 +1,14 @@
-module github.com/alphayan/go-admin-core
+module github.com/go-admin-team/go-admin-core
 
 go 1.18
 
 require (
 	github.com/BurntSushi/toml v1.2.0
 	github.com/bitly/go-simplejson v0.5.0
-	github.com/bsm/redislock v0.7.2
+	github.com/bsm/redislock v0.8.0
 	github.com/fsnotify/fsnotify v1.5.4
 	github.com/ghodss/yaml v1.0.0
 	github.com/gin-gonic/gin v1.8.1
-	github.com/go-admin-team/go-admin-core v1.4.0
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
 	github.com/google/uuid v1.3.0
@@ -39,6 +38,7 @@ require (
 	github.com/Masterminds/sprig/v3 v3.2.2 // indirect
 	github.com/andygrunwald/go-jira v1.16.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
+	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
@@ -99,4 +99,6 @@ require (
 
 replace github.com/robinjoseph08/redisqueue/v2 v2.1.0 => github.com/alphayan/redisqueue/v3 v3.0.4
 
-replace github.com/go-admin-team/go-admin-core v1.4.0 => github.com/alphayan/go-admin-core v1.4.4
+replace github.com/go-admin-team/go-admin-core v1.4.0 => ./
+
+replace github.com/bsm/redislock v0.8.0 => github.com/bsm/redislock v0.7.2
