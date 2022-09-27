@@ -9,6 +9,7 @@ package middleware
 
 import (
 	"context"
+
 	"github.com/gin-gonic/gin"
 	metrics "github.com/slok/go-http-metrics/metrics/prometheus"
 	"github.com/slok/go-http-metrics/middleware"

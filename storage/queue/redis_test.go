@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-redis/redis/v7"
+	"github.com/go-redis/redis/v8"
 	"github.com/robinjoseph08/redisqueue/v2"
 
 	"github.com/go-admin-team/go-admin-core/storage"
@@ -51,7 +51,7 @@ func TestRedis_Append(t *testing.T) {
 			},
 			args{
 				name: "test",
-				message: &Message{redisqueue.Message{
+				message: &Message{Message: redisqueue.Message{
 					Stream: "test",
 					Values: map[string]interface{}{
 						"key": "value",

@@ -4,6 +4,7 @@ package errors
 
 import (
 	"fmt"
+
 	json "github.com/json-iterator/go"
 )
 

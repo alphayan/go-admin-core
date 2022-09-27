@@ -42,7 +42,7 @@ func TestResolve(t *testing.T) {
 
 		list := constructor.GetBindingForGin(d)
 		for _, binding := range list {
-			fmt.Printf("%v /n",binding)
+			fmt.Printf("%v /n", binding)
 		}
 
 	})

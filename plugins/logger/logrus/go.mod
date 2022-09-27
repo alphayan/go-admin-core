@@ -12,4 +12,4 @@ require (
 	golang.org/x/sys v0.0.0-20210603081109-ebe580a85c40 // indirect
 )
 
-//replace github.com/go-admin-team/go-admin-core => ../../../
+replace github.com/go-admin-team/go-admin-core v1.4.0 => github.com/alphayan/go-admin-core v1.4.4
