@@ -2,12 +2,9 @@ package cache
 
 import (
 	"context"
+	"github.com/go-redis/redis/v9"
 	"time"
-
-	"github.com/go-redis/redis/v8"
 )
-
-var rctx = context.Background()
 
 // NewRedis redis模式
 func NewRedis(client *redis.Client, options *redis.Options) (*Redis, error) {
@@ -36,47 +33,47 @@ func (*Redis) String() string {
 // connect connect test
 func (r *Redis) connect() error {
 	var err error
-	_, err = r.client.Ping(rctx).Result()
+	_, err = r.client.Ping(context.TODO()).Result()
 	return err
 }
 
 // Get from key
 func (r *Redis) Get(key string) (string, error) {
-	return r.client.Get(rctx, key).Result()
+	return r.client.Get(context.TODO(), key).Result()
 }
 
 // Set value with key and expire time
 func (r *Redis) Set(key string, val interface{}, expire int) error {
-	return r.client.Set(rctx, key, val, time.Duration(expire)*time.Second).Err()
+	return r.client.Set(context.TODO(), key, val, time.Duration(expire)*time.Second).Err()
 }
 
 // Del delete key in redis
 func (r *Redis) Del(key string) error {
-	return r.client.Del(rctx, key).Err()
+	return r.client.Del(context.TODO(), key).Err()
 }
 
 // HashGet from key
 func (r *Redis) HashGet(hk, key string) (string, error) {
-	return r.client.HGet(rctx, hk, key).Result()
+	return r.client.HGet(context.TODO(), hk, key).Result()
 }
 
 // HashDel delete key in specify redis's hashtable
 func (r *Redis) HashDel(hk, key string) error {
-	return r.client.HDel(rctx, hk, key).Err()
+	return r.client.HDel(context.TODO(), hk, key).Err()
 }
 
 // Increase
 func (r *Redis) Increase(key string) error {
-	return r.client.Incr(rctx, key).Err()
+	return r.client.Incr(context.TODO(), key).Err()
 }
 
 func (r *Redis) Decrease(key string) error {
-	return r.client.Decr(rctx, key).Err()
+	return r.client.Decr(context.TODO(), key).Err()
 }
 
 // Set ttl
 func (r *Redis) Expire(key string, dur time.Duration) error {
-	return r.client.Expire(rctx, key, dur).Err()
+	return r.client.Expire(context.TODO(), key, dur).Err()
 }
 
 // GetClient 暴露原生client

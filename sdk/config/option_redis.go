@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/go-redis/redis/v8"
+	"github.com/go-redis/redis/v9"
 )
 
 var _redis *redis.Client
@@ -20,7 +20,7 @@ func GetRedisClient() *redis.Client {
 // SetRedisClient 设置redis客户端
 func SetRedisClient(c *redis.Client) {
 	if _redis != nil && _redis != c {
-		_redis.Shutdown(context.Background())
+		_redis.Shutdown(context.TODO())
 	}
 	_redis = c
 }
